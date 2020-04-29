@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from inkwell import views as inkwell_views
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', inkwell_views.home, name='home'),
+    path('detail/<int:id_ink>', inkwell_views.ink_detail, name='detail'),
+    path('list/', inkwell_views.ink_list, name='list'),
+    path('create/', inkwell_views.ink_create, name='create'),
 ]
